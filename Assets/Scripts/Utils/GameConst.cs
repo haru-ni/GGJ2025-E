@@ -23,10 +23,9 @@ namespace Utils
         {
             { BgmType.SunnySpot, "Sound/BGM/bo-tto hidamari" },
         };
-        
+
         public enum CardType
         {
-            
         }
 
         public enum ColorType
@@ -35,5 +34,7 @@ namespace Utils
             Blue,
             Purple,
         }
+
+        public const int PlayerBubbleLimit = 5;
     }
 }
