@@ -28,5 +28,12 @@ namespace Utils
         {
             
         }
+
+        public enum ColorType
+        {
+            Red,
+            Blue,
+            Purple,
+        }
     }
 }
