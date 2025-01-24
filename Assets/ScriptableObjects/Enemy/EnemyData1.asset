@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: fdaaf3f2e417d4b7fa6bf31bbedc0386, type: 3}
   BehaviourList:
-  - color: 0
-    power: 1
-  - color: 1
-    power: 1
-  - color: 0
-    power: 1
+  - bubbleData:
+      power: 1
+      color: 0
+  - bubbleData:
+      power: 1
+      color: 1
+  - bubbleData:
+      power: 1
+      color: 0
   hp: 3

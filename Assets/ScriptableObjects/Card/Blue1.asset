@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Blue1
   sprite: {fileID: 21300000, guid: a8be983d36db94cbd966ed40bd54fad7, type: 3}
-  power: 1
-  color: 1
+  bubbleData:
+    power: 1
+    color: 1

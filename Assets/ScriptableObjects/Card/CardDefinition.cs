@@ -1,5 +1,5 @@
+using Game;
 using UnityEngine;
-using Utils;
 
 namespace ScriptableObjects.Card
 {
@@ -8,7 +8,6 @@ namespace ScriptableObjects.Card
     {
         public string cardName;
         public Sprite sprite;
-        public int power;
-        public GameConst.ColorType color;
+        public BubbleData bubbleData;
     }
 }

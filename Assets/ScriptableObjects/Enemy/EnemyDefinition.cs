@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 using Utils;
 
@@ -16,7 +17,6 @@ namespace ScriptableObjects.Enemy
     [Serializable]
     public class  Behaviour
     {
-        public GameConst.ColorType color;
-        public int power;
+        public BubbleData bubbleData;
     };
 }
