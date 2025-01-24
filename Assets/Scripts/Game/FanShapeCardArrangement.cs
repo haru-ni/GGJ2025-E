@@ -45,8 +45,13 @@ namespace Game
         public void AddCard()
         {
             var card = Instantiate(cardPrefab, transform);
-            var cardRectTransform = card.GetComponent<Card>();
-            _cards.Add(cardRectTransform);
+
+            var cardDataManager = GetComponent<CardDataManager>();
+            var index = Random.Range(0, cardDataManager.CardDataDefinitions.Count);
+            var cardData = cardDataManager.CardDataDefinitions[index];
+            card.SetImage(cardData.image);
+
+            _cards.Add(card);
             ArrangeCardsInFanShape();
         }
 
