@@ -23,5 +23,10 @@ namespace Utils
         {
             { BgmType.SunnySpot, "Sound/BGM/bo-tto hidamari" },
         };
+        
+        public enum CardType
+        {
+            
+        }
     }
 }
