@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33eedc10d8f2647b6ad0733c7e82a607, type: 3}
   m_Name: Stage1
   m_EditorClassIdentifier: 
-  enemyList: []
-  backGroundSprite: {fileID: 0}
+  enemyList:
+  - {fileID: 11400000, guid: 69005b3e852cd41e1ab2df306846e07b, type: 2}
+  backGroundSprite: {fileID: 21300000, guid: a086354e522c0431980a5cf47923168c, type: 3}
