@@ -11,6 +11,17 @@ namespace Game
     {
         public int power;
         public GameConst.ColorType color;
+
+        public Color GetColor()
+        {
+            return color switch
+            {
+                GameConst.ColorType.Red => Color.red,
+                GameConst.ColorType.Blue => Color.blue,
+                GameConst.ColorType.Purple => Color.magenta,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+        }
     }
 
     public class Bubble : MonoBehaviour
@@ -29,13 +40,7 @@ namespace Game
             _bubbleData = bubbleData;
             _layer = layer;
 
-            var color = _bubbleData.color switch
-            {
-                GameConst.ColorType.Red => Color.red,
-                GameConst.ColorType.Blue => Color.blue,
-                GameConst.ColorType.Purple => Color.magenta,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            var color = _bubbleData.GetColor();
 
             bubbleText.SetText(_bubbleData.power.ToString());
             bubbleText.color = color;
