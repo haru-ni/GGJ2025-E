@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f04f0577d5b504e47b8687061dc76c51, type: 3}
-  m_Name: EnemyData1
+  m_Script: {fileID: 11500000, guid: 33eedc10d8f2647b6ad0733c7e82a607, type: 3}
+  m_Name: Stage1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: fdaaf3f2e417d4b7fa6bf31bbedc0386, type: 3}
-  BehaviourList:
-  - color: 0
-    power: 1
-  - color: 1
-    power: 1
-  - color: 0
-    power: 1
-  hp: 3
+  enemyList: []
+  backGroundSprite: {fileID: 0}
