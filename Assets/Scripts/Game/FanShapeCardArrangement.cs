@@ -46,10 +46,10 @@ namespace Game
         {
             var card = Instantiate(cardPrefab, transform);
 
-            var cardDataManager = GetComponent<CardDataManager>();
-            var index = Random.Range(0, cardDataManager.CardDataDefinitions.Count);
-            var cardData = cardDataManager.CardDataDefinitions[index];
-            card.SetImage(cardData.image);
+            // var cardDataManager = GetComponent<CardDataManager>();
+            // var index = Random.Range(0, cardDataManager.CardDataDefinitions.Count);
+            // var cardData = cardDataManager.CardDataDefinitions[index];
+            // card.SetImage(cardData.image);
 
             _cards.Add(card);
             ArrangeCardsInFanShape();
