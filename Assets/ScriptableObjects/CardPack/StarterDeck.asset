@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StarterDeck
   m_EditorClassIdentifier: 
   packname: StarterDeck
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 39febc8e4448e4a60a125c1f69f0a03f, type: 3}
   cards:
   - {fileID: 11400000, guid: a737d3a61b7c04f6b818116d90c382b0, type: 2}
   - {fileID: 11400000, guid: a737d3a61b7c04f6b818116d90c382b0, type: 2}
