@@ -8,7 +8,7 @@ using Behaviour = ScriptableObjects.Enemy.Behaviour;
 
 namespace Game
 {
-    public class InGameManager : Utils.Singleton<InGameManager>
+    public class InGameManager : Singleton<InGameManager>
     {
         private const float TurnIntervalTime = 0.3f;
 
@@ -31,6 +31,7 @@ namespace Game
 
         public async UniTask StartInGame()
         {
+            SoundManager.Instance.PlayBgm(GameConst.BgmType.NormalBattle);
             cardManager.Setup();
             stageManager.Setup();
             while (!_inGameEnd)
