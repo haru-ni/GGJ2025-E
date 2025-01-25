@@ -48,6 +48,11 @@ namespace Game
             DrawCard(needDrawCardNumber);
         }
 
+        private void UpdateStackCardText()
+        {
+            stackCardCountText.text = _stackCards.Count.ToString();
+        }
+
         private void StackCardEvent()
         {
             // TODO 山札情報表示用のイベント
@@ -71,6 +76,7 @@ namespace Game
 
                 var drawCardDefinition = _stackCards[Random.Range(0, _stackCards.Count)];
                 _stackCards.Remove(drawCardDefinition);
+                UpdateStackCardText();
 
                 var targetHandCard = _handCards.FirstOrDefault(x => !x.IsEnable());
                 if (targetHandCard == null)
