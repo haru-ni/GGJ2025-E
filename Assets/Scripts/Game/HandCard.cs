@@ -22,8 +22,8 @@ namespace Game
         public void Play()
         {
             if (!IsEnable()) return;
-            SetEnable(false);
-            // TODO 効果発動
+
+            InGameManager.Instance.PlayCard(this);
         }
 
         public bool IsEnable()

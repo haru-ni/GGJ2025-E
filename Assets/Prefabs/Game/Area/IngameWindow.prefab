@@ -218,6 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5705833994698577289}
+  - component: {fileID: 4776602572405985113}
   m_Layer: 5
   m_Name: IngameWindow
   m_TagString: Untagged
@@ -249,6 +250,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4776602572405985113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799748276831449619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea59f719d6ea345ad8229f9a8b806119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardManager: {fileID: 9012893946325575528}
+  stageManager: {fileID: 6367031453344809853}
+  player: {fileID: 8763857999858959563}
 --- !u!1001 &2252838991507778488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -351,6 +367,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3638859133626510067, guid: fe2cae370d7a2483194cb82e03ae519a, type: 3}
   m_PrefabInstance: {fileID: 2252838991507778488}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8763857999858959563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7412022607839981427, guid: fe2cae370d7a2483194cb82e03ae519a, type: 3}
+  m_PrefabInstance: {fileID: 2252838991507778488}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36a0d48e1e33492e955a5bb001c9921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3531083383639045522
 PrefabInstance:
   m_ObjectHideFlags: 0

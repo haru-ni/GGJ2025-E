@@ -1,6 +1,7 @@
 using ScriptableObjects.Card;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game
@@ -11,19 +12,14 @@ namespace Game
         [SerializeField] protected TextMeshProUGUI powerText;
         public RectTransform RectTransform => transform as RectTransform;
 
-        protected CardDefinition CardDefinition;
+        public CardDefinition cardDefinition;
 
-        public virtual void Setup(CardDefinition cardDefinition)
+        public virtual void Setup(CardDefinition cardData)
         {
-            CardDefinition = cardDefinition;
-            cardImage.sprite = cardDefinition.sprite;
-            cardImage.color = cardDefinition.bubbleData.GetColor();
-            powerText.SetText($"{cardDefinition.bubbleData.power}");
-        }
-
-        public CardDefinition GetCardModel()
-        {
-            return CardDefinition;
+            cardDefinition = cardData;
+            cardImage.sprite = cardData.sprite;
+            cardImage.color = cardData.bubbleData.GetColor();
+            powerText.SetText($"{cardData.bubbleData.power}");
         }
     }
 }
