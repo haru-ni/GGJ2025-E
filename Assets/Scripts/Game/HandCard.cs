@@ -30,7 +30,7 @@ namespace Game
         {
             if (!IsEnable()) return;
 
-            InGameManager.Instance.PlayCard(this);
+            InGameWindowManager.Instance.PlayCard(this);
             _playCardAction?.Invoke();
         }
 

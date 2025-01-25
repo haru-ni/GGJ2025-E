@@ -1,0 +1,29 @@
+using Game;
+using Meta;
+using UnityEngine;
+using Utils;
+
+public class GameManager : Singleton<GameManager>
+{
+    [SerializeField] private TitleWindowManager titleWindowManager;
+    [SerializeField] private InGameWindowManager inGameManager;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Setup();
+    }
+
+    private void Setup()
+    {
+        titleWindowManager.Setup();
+        titleWindowManager.SetEnable(true);
+    }
+
+    public void TitleToInGame()
+    {
+        titleWindowManager.SetEnable(false);
+        inGameManager.Setup();
+        inGameManager.SetEnable(true);
+    }
+}

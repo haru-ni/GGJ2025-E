@@ -571,6 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5705833994698577289}
   - component: {fileID: 4776602572405985113}
+  - component: {fileID: 4251896974803405559}
   m_Layer: 5
   m_Name: IngameWindow
   m_TagString: Untagged
@@ -616,9 +617,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea59f719d6ea345ad8229f9a8b806119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 4251896974803405559}
   cardManager: {fileID: 9012893946325575528}
   stageManager: {fileID: 6367031453344809853}
   player: {fileID: 8763857999858959563}
+--- !u!225 &4251896974803405559
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799748276831449619}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7079257101781669955
 GameObject:
   m_ObjectHideFlags: 0

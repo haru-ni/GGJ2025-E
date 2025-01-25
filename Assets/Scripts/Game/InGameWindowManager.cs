@@ -8,14 +8,16 @@ using Behaviour = ScriptableObjects.Enemy.Behaviour;
 
 namespace Game
 {
-    public class InGameManager : Singleton<InGameManager>
+    public class InGameWindowManager : Singleton<InGameWindowManager>
     {
         private const float TurnIntervalTime = 0.3f;
 
+        [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private CardManager cardManager;
         [SerializeField] private StageManager stageManager;
         [SerializeField] private Player player;
 
+        private bool _isEnable;
         private bool _inGameEnd;
         private int _turnIndex;
         private int Turn => _turnIndex + 1;
@@ -23,10 +25,17 @@ namespace Game
         private bool _cardPlayed;
         private bool _enemyBehaviourEnd;
 
-        protected override void Awake()
+        public void Setup()
         {
-            base.Awake();
             StartInGame().Forget();
+        }
+
+        public void SetEnable(bool isEnable)
+        {
+            _isEnable = isEnable;
+            canvasGroup.alpha = isEnable ? 1 : 0;
+            canvasGroup.interactable = isEnable;
+            canvasGroup.blocksRaycasts = isEnable;
         }
 
         public async UniTask StartInGame()
