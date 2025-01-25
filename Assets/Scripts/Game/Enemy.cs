@@ -24,6 +24,7 @@ namespace Game
 
             UpdateHpText();
             enemyImage.sprite = _enemyDefinition.sprite;
+            enemyImage.SetNativeSize();
 
             foreach (var element in _enemyDefinition.BehaviourList)
             {

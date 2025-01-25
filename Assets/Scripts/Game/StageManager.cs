@@ -28,6 +28,7 @@ namespace Game
         public void StageSetup(StageDefinition stageDefinition)
         {
             backGroundImage.sprite = stageDefinition.backGroundSprite;
+            // backGroundImage.SetNativeSize();
             foreach (var element in stageDefinition.enemyList)
             {
                 CreateEnemy(element);

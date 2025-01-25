@@ -17,6 +17,7 @@ namespace Game
         {
             cardDefinition = cardData;
             cardImage.sprite = cardData.sprite;
+            cardImage.SetNativeSize();
             cardImage.color = cardData.bubbleData.GetColor();
             powerText.SetText($"{cardData.bubbleData.power}");
         }
