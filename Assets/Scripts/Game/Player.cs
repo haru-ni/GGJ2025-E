@@ -28,12 +28,20 @@ namespace Game
             _bubbles.Add(bubble);
         }
 
-        public void RemoveBubble()
+        public void RemoveBubble(int count = 1)
         {
-            var target = _bubbles.Last();
-            if (target == null) return;
-            target.Destroy();
-            _bubbles.Remove(target);
+            for (var i = 0; i < count; i++)
+            {
+                var target = _bubbles.Last();
+                if (target == null) return;
+                target.Destroy();
+                _bubbles.Remove(target);   
+            }
+        }
+
+        public List<Bubble> GetBubbleData(int bubbleCount)
+        {
+            return new List<Bubble>(_bubbles.Take(bubbleCount));
         }
     }
 }

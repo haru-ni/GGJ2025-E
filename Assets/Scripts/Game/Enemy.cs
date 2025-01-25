@@ -1,3 +1,4 @@
+using System;
 using ScriptableObjects.Enemy;
 using TMPro;
 using UnityEngine;
@@ -29,6 +30,36 @@ namespace Game
                 var behavior = Instantiate(behaviorDisplay, behaviourContainer);
                 behavior.Setup(element.bubbleData);
             }
+        }
+
+        public void SetOnDeathAction(Action<Enemy> action)
+        {
+            _onDeath = action;
+        }
+
+        private void UpdateHpText()
+        {
+            hpText.SetText($"{_currentHp}/{_enemyDefinition.hp}");
+        }
+
+        public Behaviour GetEnemyBehaviour(int turnIndex)
+        {
+            return _enemyDefinition.BehaviourList[turnIndex % _enemyDefinition.BehaviourList.Count];
+        }
+
+        public void DecrementHp(int damage = 1)
+        {
+            _currentHp -= damage;
+            UpdateHpText();
+            if (_currentHp > 0) return;
+            Dead();
+        }
+
+        private Action<Enemy> _onDeath;
+        public void Dead()
+        {
+            DestroyImmediate(gameObject);
+            
         }
     }
 }

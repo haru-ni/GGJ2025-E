@@ -18,5 +18,6 @@ namespace ScriptableObjects.Enemy
     public class  Behaviour
     {
         public BubbleData bubbleData;
+        public int numberOfDestroy;
     };
 }

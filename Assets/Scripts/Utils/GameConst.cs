@@ -35,6 +35,11 @@ namespace Utils
             Purple,
         }
 
+        public static Dictionary<List<ColorType>, ColorType> MixColorDictionary = new()
+        {
+            { new List<ColorType> { ColorType.Red, ColorType.Blue }, ColorType.Purple },
+        };
+
         public const int PlayerBubbleLimit = 5;
         public const int HandCardCount = 5;
     }

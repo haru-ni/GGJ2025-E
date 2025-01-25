@@ -17,10 +17,13 @@ MonoBehaviour:
   - bubbleData:
       power: 1
       color: 0
+    numberOfDestroy: 1
   - bubbleData:
       power: 1
       color: 1
+    numberOfDestroy: 1
   - bubbleData:
       power: 1
       color: 0
+    numberOfDestroy: 1
   hp: 3

@@ -50,6 +50,11 @@ namespace Game
             bubbleImage.color = color;
         }
 
+        public BubbleData GetBubbleData()
+        {
+            return _bubbleData;
+        }
+
         public void Destroy()
         {
             DestroyImmediate(gameObject);

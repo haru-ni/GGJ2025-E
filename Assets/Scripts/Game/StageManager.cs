@@ -38,7 +38,13 @@ namespace Game
         {
             var enemy = Instantiate(enemyPrefab, enemyArea);
             enemy.Setup(enemyDefinition);
+            enemy.SetOnDeathAction(x => { _enemyList.Remove(x); });
             _enemyList.Add(enemy);
+        }
+
+        public List<Enemy> GetEnemies()
+        {
+            return _enemyList;
         }
 
         public List<Behaviour> GetEnemyBehaviour(int turnIndex)
