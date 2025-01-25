@@ -32,6 +32,7 @@ namespace Game
         public async UniTask StartInGame()
         {
             SoundManager.Instance.PlayBgm(GameConst.BgmType.NormalBattle);
+            player.Setup();
             cardManager.Setup();
             stageManager.Setup();
             while (!_inGameEnd)
@@ -114,6 +115,7 @@ namespace Game
                 Debug.LogError($"対象となる敵がいない！");
                 return;
             }
+
             targetEnemy.DecrementHp();
         }
 
