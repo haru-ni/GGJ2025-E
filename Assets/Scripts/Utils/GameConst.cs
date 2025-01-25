@@ -58,14 +58,14 @@ namespace Utils
 
         public enum BgmType
         {
-            SunnySpot,
             NormalBattle,
+            Ending,
         }
 
         public static readonly Dictionary<BgmType, string> BgmPathDictionary = new()
         {
-            { BgmType.SunnySpot, "Sound/BGM/bo-tto hidamari" },
-            { BgmType.NormalBattle, "Sound/BGM/normalBattleBGM" },
+            { BgmType.NormalBattle, "Sound/BGM/NormalBattle" },
+            { BgmType.Ending, "Sound/BGM/Ending" },
         };
 
         public enum CardType
