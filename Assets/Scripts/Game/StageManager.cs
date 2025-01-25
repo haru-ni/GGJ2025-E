@@ -1,10 +1,11 @@
 using System.Collections.Generic;
-using Data;
+using System.Linq;
 using ScriptableObjects.Enemy;
 using ScriptableObjects.Stage;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils;
+using Behaviour = ScriptableObjects.Enemy.Behaviour;
 
 namespace Game
 {
@@ -38,6 +39,11 @@ namespace Game
             var enemy = Instantiate(enemyPrefab, enemyArea);
             enemy.Setup(enemyDefinition);
             _enemyList.Add(enemy);
+        }
+
+        public List<Behaviour> GetEnemyBehaviour(int turnIndex)
+        {
+            return _enemyList.Select(x => x.GetEnemyBehaviour(turnIndex)).ToList();
         }
 
         public void StageEnd()

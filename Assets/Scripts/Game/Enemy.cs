@@ -1,7 +1,9 @@
 using ScriptableObjects.Enemy;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Behaviour = ScriptableObjects.Enemy.Behaviour;
 
 namespace Game
 {
@@ -17,17 +19,22 @@ namespace Game
 
         public void Setup(EnemyDefinition enemyDefinition)
         {
-            _enemyDefinition = enemyDefinition;
-            _currentHp = _enemyDefinition.hp;
+            this._enemyDefinition = enemyDefinition;
+            _currentHp = this._enemyDefinition.hp;
 
-            enemyImage.sprite = _enemyDefinition.sprite;
-            hpText.SetText($"{_currentHp}/{_enemyDefinition.hp}");
+            enemyImage.sprite = this._enemyDefinition.sprite;
+            hpText.SetText($"{_currentHp}/{this._enemyDefinition.hp}");
 
-            foreach (var element in _enemyDefinition.BehaviourList)
+            foreach (var element in this._enemyDefinition.BehaviourList)
             {
                 var behavior = Instantiate(behaviorDisplay, behaviourContainer);
                 behavior.Setup(element.bubbleData);
             }
+        }
+
+        public Behaviour GetEnemyBehaviour(int turnIndex)
+        {
+            return _enemyDefinition.BehaviourList[turnIndex % _enemyDefinition.BehaviourList.Count];
         }
 
         [SerializeField] private EnemyDefinition temp;
