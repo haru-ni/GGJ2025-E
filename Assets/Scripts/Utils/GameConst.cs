@@ -58,12 +58,14 @@ namespace Utils
 
         public enum BgmType
         {
+            PixelLoveInTokyo,
             NormalBattle,
             Ending,
         }
 
         public static readonly Dictionary<BgmType, string> BgmPathDictionary = new()
         {
+            { BgmType.PixelLoveInTokyo, "Sound/BGM/PixelLoveInTokyo" },
             { BgmType.NormalBattle, "Sound/BGM/NormalBattle" },
             { BgmType.Ending, "Sound/BGM/Ending" },
         };

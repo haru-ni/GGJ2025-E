@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace Meta
 {
@@ -13,6 +14,8 @@ namespace Meta
 
         public void Setup()
         {
+            SoundManager.Instance.PlayBgm(GameConst.BgmType.PixelLoveInTokyo);
+
             startButton.onClick.RemoveAllListeners();
             startButton.onClick.AddListener(OnStartButtonClicked);
 
@@ -33,6 +36,7 @@ namespace Meta
         /// </summary>
         private static void OnStartButtonClicked()
         {
+            SoundManager.Instance.PlaySe(GameConst.SeType.Decision31);
             GameManager.Instance.TitleToInGame();
         }
 
@@ -41,6 +45,7 @@ namespace Meta
         /// </summary>
         private static void OnOptionButtonClicked()
         {
+            SoundManager.Instance.PlaySe(GameConst.SeType.Decision31);
         }
     }
 }
