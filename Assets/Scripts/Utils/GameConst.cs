@@ -4,6 +4,27 @@ namespace Utils
 {
     public static class GameConst
     {
+        #region Config
+
+        public enum ColorType
+        {
+            Pink,
+            Green,
+            Bicolor,
+        }
+
+        public static readonly Dictionary<List<ColorType>, ColorType> MixColorDictionary = new()
+        {
+            { new List<ColorType> { ColorType.Pink, ColorType.Green }, ColorType.Bicolor },
+        };
+
+        public const int PlayerBubbleLimit = 5;
+        public const int HandCardCount = 5;
+
+        #endregion
+
+        #region SE
+
         public enum SeType
         {
             Cancel2,
@@ -56,6 +77,10 @@ namespace Utils
             { SeType.VoiceWin, "Sound/SE/Pop" },
         };
 
+        #endregion
+
+        #region BGM
+
         public enum BgmType
         {
             PixelLoveInTokyo,
@@ -70,23 +95,42 @@ namespace Utils
             { BgmType.Ending, "Sound/BGM/Ending" },
         };
 
-        public enum CardType
+        #endregion
+
+        #region Spine
+
+        public enum BattleEffect
         {
+            EnemyHit,
+            Hit,
+            ShieldBurst,
         }
 
-        public enum ColorType
+        public static Dictionary<BattleEffect, string> BattleEffectDictionary = new()
         {
-            Pink,
-            Green,
-            Bicolor,
-        }
-
-        public static readonly Dictionary<List<ColorType>, ColorType> MixColorDictionary = new()
-        {
-            { new List<ColorType> { ColorType.Pink, ColorType.Green }, ColorType.Bicolor },
+            { BattleEffect.EnemyHit, "enemy_hit" },
+            { BattleEffect.Hit, "hit" },
+            { BattleEffect.ShieldBurst, "shield_burst" },
         };
 
-        public const int PlayerBubbleLimit = 5;
-        public const int HandCardCount = 5;
+        public enum PlayerShield
+        {
+            Shield1,
+            Shield2,
+            Shield3,
+            Shield4,
+            Shield5,
+        }
+
+        public static Dictionary<PlayerShield, string> PlayerShieldDictionary = new()
+        {
+            { PlayerShield.Shield1, "shield_1" },
+            { PlayerShield.Shield2, "shield_2" },
+            { PlayerShield.Shield3, "shield_3" },
+            { PlayerShield.Shield4, "shield_4" },
+            { PlayerShield.Shield5, "shield_5" },
+        };
+
+        #endregion
     }
 }
