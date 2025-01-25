@@ -6,11 +6,16 @@ namespace Game
 {
     public class InGameManager : Singleton<InGameManager>
     {
+        private const float TurnIntervalTime = 0.3f;
+
         [SerializeField] private CardManager cardManager;
         [SerializeField] private StageManager stageManager;
         [SerializeField] private Player player;
 
         private bool _inGameEnd;
+        private int _turnIndex;
+        private int Turn => _turnIndex + 1;
+        private bool _isPlayerTurn;
         private bool _cardPlayed;
         private bool _enemyBehaviourEnd;
 
@@ -27,6 +32,7 @@ namespace Game
             while (!_inGameEnd)
             {
                 await OneTurnRoutine();
+                _turnIndex++;
             }
         }
 
@@ -39,9 +45,20 @@ namespace Game
         public async UniTask PlayerTurn()
         {
             Debug.Log($"PlayerTurn");
+            _isPlayerTurn = true;
             _cardPlayed = false;
             await UniTask.Yield();
             await UniTask.WaitUntil(() => _cardPlayed);
+            await UniTask.WaitForSeconds(TurnIntervalTime);
+        }
+
+        public void PlayCard(HandCard handCard)
+        {
+            if (!_isPlayerTurn || _cardPlayed) return;
+            _cardPlayed = true;
+            player.AddBubble(handCard.cardDefinition.bubbleData);
+            SoundManager.Instance.PlaySe(GameConst.SeType.Decision3);
+            handCard.SetEnable(false);
         }
 
         public async UniTask EnemyTurn()
@@ -49,20 +66,15 @@ namespace Game
             Debug.Log($"EnemyTurn");
             _enemyBehaviourEnd = false;
             await UniTask.Yield();
-            await UniTask.WaitUntil(() => _cardPlayed);
-        }
-
-        public void PlayCard(HandCard handCard)
-        {
-            player.AddBubble(handCard.cardDefinition.bubbleData);
-            SoundManager.Instance.PlaySe(GameConst.SeType.Decision3);
-            handCard.SetEnable(false);
-            _cardPlayed = true;
+            EnemyBehaviour().Forget();
+            await UniTask.WaitUntil(() => _enemyBehaviourEnd);
+            await UniTask.WaitForSeconds(TurnIntervalTime);
         }
 
         public async UniTask EnemyBehaviour()
         {
-            // TODO 敵の行動
+            var enemyBehaviours = stageManager.GetEnemyBehaviour(_turnIndex);
+
             _enemyBehaviourEnd = true;
         }
     }
