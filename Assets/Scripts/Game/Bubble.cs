@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utils;
 
@@ -11,43 +13,39 @@ namespace Game
     {
         public int power;
         public GameConst.ColorType color;
-
-        public Color GetColor()
-        {
-            return color switch
-            {
-                GameConst.ColorType.Pink => Color.red,
-                GameConst.ColorType.Green => Color.blue,
-                GameConst.ColorType.Bicolor => Color.magenta,
-                _ => throw new ArgumentOutOfRangeException()
-            };
-        }
     }
 
     public class Bubble : MonoBehaviour
     {
-        private const float FirstScale = 1f;
-        private const float ScaleMultiplier = 1.5f;
-
+        [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Image bubbleImage;
-        [SerializeField] private TextMeshProUGUI bubbleText;
+        [SerializeField] private Sprite bubbleSprite;
+        [SerializeField] private Image colorBubbleImage;
+        [SerializeField] private List<Sprite> colorBubbleSprite;
+
+        [SerializeField] private RectTransform informationContainer;
+        [SerializeField] private Image starPrefab;
+        [SerializeField] private List<Sprite> startSprites = new();
 
         private BubbleData _bubbleData;
         private int _layer;
+        private bool _enable;
 
-        public void Setup(BubbleData bubbleData, int layer)
+        public void Setup(BubbleData bubbleData, int layer, bool enable = false)
         {
             _bubbleData = bubbleData;
             _layer = layer;
+            _enable = enable;
 
-            var color = _bubbleData.GetColor();
+            SetEnable(_enable);
+            colorBubbleImage.sprite = colorBubbleSprite[(int)bubbleData.color];
+            colorBubbleImage.SetNativeSize();
 
-            bubbleText.SetText(_bubbleData.power.ToString());
-            bubbleText.color = color;
-
-            var scale = Mathf.Pow(ScaleMultiplier, _layer) * FirstScale;
-            bubbleImage.rectTransform.localScale = new Vector3(scale, scale, scale);
-            bubbleImage.color = color;
+            for (var i = 0; i < bubbleData.power; i++)
+            {
+                var star = Instantiate(starPrefab, informationContainer);
+                star.sprite = startSprites[(int)bubbleData.color];
+            }
         }
 
         public BubbleData GetBubbleData()
@@ -55,9 +53,9 @@ namespace Game
             return _bubbleData;
         }
 
-        public void Destroy()
+        public void SetEnable(bool enable)
         {
-            DestroyImmediate(gameObject);
+            canvasGroup.alpha = enable ? 1 : 0;
         }
     }
 }

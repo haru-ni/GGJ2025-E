@@ -19,11 +19,10 @@ namespace Game
     {
         [SerializeField] private List<AnimationList> playerSDAnimationList;
         [SerializeField] private Image playerSDImage;
-        [SerializeField] private Bubble bubblePrefab;
-        [SerializeField] private RectTransform bubbleParent;
+        [SerializeField] private List<Bubble> bubbleList;
 
-        private readonly List<Bubble> _bubbles = new();
         private Sequence _playerAnimationSequence;
+        private int _bubbleCount;
 
         public void Setup()
         {
@@ -35,37 +34,39 @@ namespace Game
             }
 
             sequence.SetLoops(-1, LoopType.Restart).Play();
+
+            foreach (var element in bubbleList)
+            {
+                element.SetEnable(false);
+            }
         }
 
         public void AddBubble(BubbleData bubbleData)
         {
-            var bubble = Instantiate(bubblePrefab, bubbleParent);
-            bubble.Setup(bubbleData, _bubbles.Count);
-
             // 規定個数以上は一番古いものから張り替え
             // TODO 張り替え処理にバグあり
-            if (_bubbles.Count > GameConst.PlayerBubbleLimit)
+            if (bubbleList.Count > GameConst.PlayerBubbleLimit)
             {
                 RemoveBubble();
             }
 
-            _bubbles.Add(bubble);
+            bubbleList[_bubbleCount].Setup(bubbleData, _bubbleCount, true);
+            _bubbleCount++;
         }
 
         public void RemoveBubble(int count = 1)
         {
             for (var i = 0; i < count; i++)
             {
-                var target = _bubbles.Last();
-                if (target == null) return;
-                target.Destroy();
-                _bubbles.Remove(target);
+                _bubbleCount--;
+                bubbleList[_bubbleCount].SetEnable(false);
             }
         }
 
         public List<Bubble> GetBubbleData(int bubbleCount)
         {
-            return new List<Bubble>(_bubbles.GetRange(_bubbles.Count - bubbleCount, bubbleCount));
+            return new List<Bubble>(bubbleList.Take(bubbleCount));
+            // return new List<Bubble>(bubbleList.GetRange(bubbleList.Count - bubbleCount, bubbleCount));
         }
     }
 }
