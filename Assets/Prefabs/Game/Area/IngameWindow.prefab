@@ -956,7 +956,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8014021792489153640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -969,7 +969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c4cc4be14f6d45adb8291ef3ef137e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 010eec549706b4441808cdbe1b46ea25, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1254,6 +1254,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3638859133626510067, guid: fe2cae370d7a2483194cb82e03ae519a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558205908835310933, guid: fe2cae370d7a2483194cb82e03ae519a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558205908835310933, guid: fe2cae370d7a2483194cb82e03ae519a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558205908835310933, guid: fe2cae370d7a2483194cb82e03ae519a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558205908835310933, guid: fe2cae370d7a2483194cb82e03ae519a, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4867291985679084127, guid: fe2cae370d7a2483194cb82e03ae519a, type: 3}
