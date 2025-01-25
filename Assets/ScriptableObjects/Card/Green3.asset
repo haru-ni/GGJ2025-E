@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da4406c05d3c64659884d8bb7b9190f5, type: 3}
-  m_Name: Red3
+  m_Name: Green3
   m_EditorClassIdentifier: 
-  cardName: Red3
-  sprite: {fileID: 21300000, guid: 1d46aaa1822f94531999c8b063facf07, type: 3}
+  cardName: Blue1
+  sprite: {fileID: 21300000, guid: 134df8c17dbd843b9b2859f5ddb0854a, type: 3}
   bubbleData:
     power: 3
-    color: 0
+    color: 1
