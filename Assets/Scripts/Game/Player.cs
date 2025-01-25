@@ -41,7 +41,7 @@ namespace Game
 
         public List<Bubble> GetBubbleData(int bubbleCount)
         {
-            return new List<Bubble>(_bubbles.Take(bubbleCount));
+            return new List<Bubble>(_bubbles.GetRange(_bubbles.Count - bubbleCount, bubbleCount));
         }
     }
 }

@@ -118,6 +118,7 @@ namespace Game
 
         private bool TryBreakBubble(BubbleData shield, BubbleData attack)
         {
+            Debug.Log($"泡の強度{shield.power},泡の色{shield.color},攻撃の強度{attack.power},攻撃の色{attack.color}");
             // 色が違うと問答無用で割れる
             if (attack.color != shield.color)
             {
