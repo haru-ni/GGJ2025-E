@@ -1,6 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using ScriptableObjects.Enemy;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Behaviour = ScriptableObjects.Enemy.Behaviour;
@@ -10,11 +11,13 @@ namespace Game
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private Image enemyImage;
-        [SerializeField] private TextMeshProUGUI hpText;
-        [SerializeField] private BehaviorDisplay behaviorDisplay;
-        [SerializeField] private RectTransform behaviourContainer;
+        [SerializeField] private Image hpPrefab;
+        [SerializeField] private RectTransform hpContainer;
+        [SerializeField] private AttackInformation attackInformation;
+        [SerializeField] private RectTransform attackInformationContainer;
 
         private EnemyDefinition _enemyDefinition;
+        private readonly List<Image> _hpImageList = new();
         private int _currentHp;
 
         public void Setup(EnemyDefinition enemyDefinition)
@@ -22,14 +25,14 @@ namespace Game
             _enemyDefinition = enemyDefinition;
             _currentHp = _enemyDefinition.hp;
 
-            UpdateHpText();
+            UpdateHpDisplay();
             enemyImage.sprite = _enemyDefinition.sprite;
             enemyImage.SetNativeSize();
 
-            foreach (var element in _enemyDefinition.BehaviourList)
+            foreach (var v in _enemyDefinition.BehaviourList.Select((element, index) => (element, index)))
             {
-                var behavior = Instantiate(behaviorDisplay, behaviourContainer);
-                behavior.Setup(element.bubbleData);
+                var behavior = Instantiate(attackInformation, attackInformationContainer);
+                behavior.Setup(v.index, v.element);
             }
         }
 
@@ -38,9 +41,27 @@ namespace Game
             _onDeath = action;
         }
 
-        private void UpdateHpText()
+        private void UpdateHpDisplay()
         {
-            hpText.SetText($"{_currentHp}/{_enemyDefinition.hp}");
+            while (_hpImageList.Count != _currentHp)
+            {
+                var currentCount = _hpImageList.Count;
+
+                // 目標の個数に応じてオブジェクトを生成または削除
+                if (currentCount < _currentHp)
+                {
+                    // オブジェクトを生成
+                    var hpImage = Instantiate(hpPrefab, hpContainer);
+                    _hpImageList.Add(hpImage);
+                }
+                else if (currentCount > _currentHp)
+                {
+                    // オブジェクトを削除
+                    var objectToRemove = _hpImageList[currentCount - 1];
+                    _hpImageList.RemoveAt(currentCount - 1);
+                    Destroy(objectToRemove);
+                }
+            }
         }
 
         public Behaviour GetEnemyBehaviour(int turnIndex)
@@ -51,16 +72,16 @@ namespace Game
         public void DecrementHp(int damage = 1)
         {
             _currentHp -= damage;
-            UpdateHpText();
+            UpdateHpDisplay();
             if (_currentHp > 0) return;
             Dead();
         }
 
         private Action<Enemy> _onDeath;
+
         public void Dead()
         {
             DestroyImmediate(gameObject);
-            
         }
     }
 }
