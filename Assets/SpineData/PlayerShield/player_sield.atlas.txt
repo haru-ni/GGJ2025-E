@@ -1,0 +1,17 @@
+player_sield.png
+size:1024,512
+filter:Linear,Linear
+pma:true
+sheld1
+bounds:304,2,218,218
+sheld2
+bounds:584,4,238,237
+offsets:1,1,240,239
+sheld3
+bounds:584,243,257,257
+offsets:1,1,259,259
+sheld4
+bounds:304,222,278,278
+offsets:1,1,280,280
+sheld5
+bounds:2,200,300,300
