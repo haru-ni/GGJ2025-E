@@ -48,14 +48,6 @@ namespace Game
             DrawCard(needDrawCardNumber);
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Setup();
-            }
-        }
-
         private void StackCardEvent()
         {
             // TODO 山札情報表示用のイベント

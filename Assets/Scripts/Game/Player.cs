@@ -35,17 +35,5 @@ namespace Game
             target.Destroy();
             _bubbles.Remove(target);
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Y))
-            {
-                AddBubble(new BubbleData { color = GameConst.ColorType.Red, power = 1 });
-            }
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                RemoveBubble();
-            }
-        }
     }
 }
