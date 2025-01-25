@@ -32,14 +32,14 @@ namespace Utils
 
         public enum ColorType
         {
-            Red,
-            Blue,
-            Purple,
+            Pink,
+            Green,
+            Bicolor,
         }
 
-        public static Dictionary<List<ColorType>, ColorType> MixColorDictionary = new()
+        public static readonly Dictionary<List<ColorType>, ColorType> MixColorDictionary = new()
         {
-            { new List<ColorType> { ColorType.Red, ColorType.Blue }, ColorType.Purple },
+            { new List<ColorType> { ColorType.Pink, ColorType.Green }, ColorType.Bicolor },
         };
 
         public const int PlayerBubbleLimit = 5;

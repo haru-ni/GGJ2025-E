@@ -60,7 +60,7 @@ MonoBehaviour:
   startSprites:
   - {fileID: 21300000, guid: 4d7b50db2679c43ba826d85bce123603, type: 3}
   - {fileID: 21300000, guid: 71934c920b31a4c65b53c67b4fb25a06, type: 3}
-  - {fileID: 21300000, guid: 9ccb655ae7bbb420ea1550582e1c3e60, type: 3}
+  - {fileID: 21300000, guid: 970f978bc12f9440892d73ed289b0f29, type: 3}
 --- !u!1 &3728487552417812746
 GameObject:
   m_ObjectHideFlags: 0

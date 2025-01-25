@@ -16,9 +16,9 @@ namespace Game
         {
             return color switch
             {
-                GameConst.ColorType.Red => Color.red,
-                GameConst.ColorType.Blue => Color.blue,
-                GameConst.ColorType.Purple => Color.magenta,
+                GameConst.ColorType.Pink => Color.red,
+                GameConst.ColorType.Green => Color.blue,
+                GameConst.ColorType.Bicolor => Color.magenta,
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
