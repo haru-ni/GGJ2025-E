@@ -17,7 +17,7 @@ namespace Game
 
         private readonly List<Enemy> _enemyList = new();
 
-        public void Awake()
+        public void Setup()
         {
             // TODO 適切なステージインデックスを読み込むようにする
             const int stageIndex = 1;

@@ -27,7 +27,7 @@ namespace Utils
             }
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             // 既にインスタンスが存在する場合は、現在のオブジェクトを破棄
             if (_instance != null && _instance != this)

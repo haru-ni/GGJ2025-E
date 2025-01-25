@@ -1,3 +1,4 @@
+using System;
 using ScriptableObjects.Card;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace Game
         [SerializeField] private CanvasGroup canvasGroup;
 
         private bool _enable;
+        private Action _playCardAction;
 
         public override void Setup(CardDefinition cardDefinition)
         {
@@ -19,11 +21,17 @@ namespace Game
             SetEnable(true);
         }
 
+        public void SetPlayCardAction(Action playCardAction)
+        {
+            _playCardAction = playCardAction;
+        }
+
         public void Play()
         {
             if (!IsEnable()) return;
 
             InGameManager.Instance.PlayCard(this);
+            _playCardAction?.Invoke();
         }
 
         public bool IsEnable()

@@ -35,6 +35,7 @@ namespace Game
             {
                 handCard.Destroy();
             }
+
             _handCards.Clear();
 
             for (var i = 0; i < GameConst.HandCardCount; i++)
@@ -45,7 +46,6 @@ namespace Game
 
             var needDrawCardNumber = _handCards.Count(x => !x.IsEnable());
             DrawCard(needDrawCardNumber);
-
         }
 
         private void Update()
@@ -70,6 +70,13 @@ namespace Game
         {
             for (var i = 0; i < number; i++)
             {
+                if (_stackCards.Count <= 0)
+                {
+                    // TODO 山札がなくなった時の処理
+                    Debug.LogError($"山札がなくなりました！");
+                    return;
+                }
+
                 var drawCardDefinition = _stackCards[Random.Range(0, _stackCards.Count)];
                 _stackCards.Remove(drawCardDefinition);
 
@@ -81,7 +88,15 @@ namespace Game
                 }
 
                 targetHandCard.Setup(drawCardDefinition);
+                targetHandCard.SetPlayCardAction(CardPlayEvent);
             }
+        }
+
+        private void CardPlayEvent()
+        {
+            // 手札がなくなったら補充する
+            if (_handCards.Count(x => x.IsEnable()) > 0) return;
+            DrawCard(_handCards.Count(x => !x.IsEnable()));
         }
     }
 }
