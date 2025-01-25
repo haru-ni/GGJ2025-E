@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utils;
 
@@ -18,8 +16,6 @@ namespace Game
     public class Bubble : MonoBehaviour
     {
         [SerializeField] private CanvasGroup canvasGroup;
-        [SerializeField] private Image bubbleImage;
-        [SerializeField] private Sprite bubbleSprite;
         [SerializeField] private Image colorBubbleImage;
         [SerializeField] private List<Sprite> colorBubbleSprite;
 
