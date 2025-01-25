@@ -36,5 +36,6 @@ namespace Utils
         }
 
         public const int PlayerBubbleLimit = 5;
+        public const int HandCardCount = 5;
     }
 }

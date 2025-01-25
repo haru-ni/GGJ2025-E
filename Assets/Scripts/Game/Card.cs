@@ -1,3 +1,5 @@
+using ScriptableObjects.Card;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,12 +7,23 @@ namespace Game
 {
     public class Card : MonoBehaviour
     {
-        [SerializeField] private Image image;
+        [SerializeField] protected Image cardImage;
+        [SerializeField] protected TextMeshProUGUI powerText;
         public RectTransform RectTransform => transform as RectTransform;
 
-        public void SetImage(Sprite sprite)
+        protected CardDefinition CardDefinition;
+
+        public virtual void Setup(CardDefinition cardDefinition)
         {
-            image.sprite = sprite;
+            CardDefinition = cardDefinition;
+            cardImage.sprite = cardDefinition.sprite;
+            cardImage.color = cardDefinition.bubbleData.GetColor();
+            powerText.SetText($"{cardDefinition.bubbleData.power}");
+        }
+
+        public CardDefinition GetCardModel()
+        {
+            return CardDefinition;
         }
     }
 }
