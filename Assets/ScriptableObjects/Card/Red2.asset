@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Red2
   m_EditorClassIdentifier: 
   cardName: Red2
-  sprite: {fileID: 21300000, guid: 6e66b7795a0154e5cac836849f604c76, type: 3}
+  sprite: {fileID: 21300000, guid: f76dd9022fad1473681a5eaff7d68204, type: 3}
   bubbleData:
     power: 2
     color: 0

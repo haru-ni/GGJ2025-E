@@ -25,11 +25,13 @@ namespace Game
 
         private readonly List<HandCard> _handCards = new();
         private List<CardDefinition> _stackCards = new();
+        private List<CardDefinition> _currentDeck = new();
 
         public void Setup()
         {
             // TODO 所持デッキ情報を山札に読み込み
-            _stackCards = new List<CardDefinition>(initialDeck.cards);
+            _currentDeck = new List<CardDefinition>(initialDeck.cards);
+            _stackCards = new List<CardDefinition>(_currentDeck);
 
             foreach (var handCard in _handCards)
             {
@@ -50,7 +52,7 @@ namespace Game
 
         private void UpdateStackCardText()
         {
-            stackCardCountText.text = _stackCards.Count.ToString();
+            stackCardCountText.SetText($"{_stackCards.Count}/{_currentDeck.Count}");
         }
 
         private void StackCardEvent()

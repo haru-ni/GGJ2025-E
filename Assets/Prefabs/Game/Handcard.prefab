@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1123145852917948177, guid: ea69fe548402542a18a4c53f706be1d8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1123145852917948177, guid: ea69fe548402542a18a4c53f706be1d8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1123145852917948177, guid: ea69fe548402542a18a4c53f706be1d8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1123145852917948177, guid: ea69fe548402542a18a4c53f706be1d8, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1123145852917948177, guid: ea69fe548402542a18a4c53f706be1d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7603574622303625294, guid: ea69fe548402542a18a4c53f706be1d8, type: 3}
       propertyPath: m_Name
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 4638751065419450795}
   powerText: {fileID: 8779122757368382890}
+  cardDefinition: {fileID: 0}
   button: {fileID: 1829247920536681009}
   canvasGroup: {fileID: 4897818890949845216}
 --- !u!114 &1829247920536681009

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList:
   - {fileID: 11400000, guid: 69005b3e852cd41e1ab2df306846e07b, type: 2}
-  backGroundSprite: {fileID: 21300000, guid: a086354e522c0431980a5cf47923168c, type: 3}
+  backGroundSprite: {fileID: 21300000, guid: 4acf89269798c45bead264b452a2533e, type: 3}
