@@ -44,8 +44,7 @@ namespace Game
         public void AddBubble(BubbleData bubbleData)
         {
             // 規定個数以上は一番古いものから張り替え
-            // TODO 張り替え処理にバグあり
-            if (bubbleList.Count > GameConst.PlayerBubbleLimit)
+            if (_bubbleCount >= GameConst.PlayerBubbleLimit)
             {
                 RemoveBubble();
             }
