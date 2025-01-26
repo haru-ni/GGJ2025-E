@@ -81,9 +81,8 @@ namespace Game
             {
                 if (_stackCards.Count <= 0)
                 {
-                    // TODO 山札がなくなった時の処理
-                    Debug.LogError($"山札がなくなりました！");
-                    return;
+                    Debug.Log($"山札がなくなったので再生成しました！");
+                    _stackCards = new List<CardDefinition>(_currentDeck);
                 }
 
                 var drawCardDefinition = _stackCards[Random.Range(0, _stackCards.Count)];
