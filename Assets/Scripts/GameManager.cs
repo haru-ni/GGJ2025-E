@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private TitleWindowManager titleWindowManager;
     [SerializeField] private InGameWindowManager inGameManager;
+    [SerializeField] private EndingWindowManager endingWindowManager;
 
     public int currentStageIndex;
 
@@ -34,5 +35,13 @@ public class GameManager : Singleton<GameManager>
         inGameManager.SetEnable(false);
         titleWindowManager.Setup();
         titleWindowManager.SetEnable(true);
+    }
+
+    public void Ending()
+    {
+        inGameManager.SetEnable(false);
+        titleWindowManager.SetEnable(false);
+        endingWindowManager.SetEnable(true);
+        endingWindowManager.Setup();
     }
 }

@@ -41,6 +41,11 @@ namespace Game
             _enemyList.Add(enemy);
         }
 
+        public void RemoveEnemy(Enemy enemy)
+        {
+            _enemyList.Remove(enemy);
+        }
+
         public List<Enemy> GetEnemies()
         {
             return _enemyList;

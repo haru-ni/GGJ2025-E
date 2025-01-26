@@ -302,9 +302,19 @@ namespace Game
             GameManager.Instance.InGameToTitle();
         }
 
+        public void EnemyDeath(Enemy enemy)
+        {
+            stageManager.RemoveEnemy(enemy);
+            var enemies = stageManager.GetEnemies();
+            if (enemies == null || enemies.Count == 0)
+            {
+                Ending();
+            }
+        }
+
         private void Ending()
         {
-            // TODO エンディング
+            GameManager.Instance.Ending();
         }
     }
 }

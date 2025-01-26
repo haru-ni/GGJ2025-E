@@ -81,6 +81,7 @@ namespace Game
 
         public void Dead()
         {
+            InGameWindowManager.Instance.EnemyDeath(this);
             DestroyImmediate(gameObject);
         }
     }
