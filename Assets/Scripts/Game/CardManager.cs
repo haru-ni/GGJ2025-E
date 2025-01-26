@@ -59,6 +59,11 @@ namespace Game
         public List<CardDefinition> GetCurrentDeck() => _currentDeck;
         public List<CardDefinition> GetValidCardList() => validCardList;
 
+        public bool IsAllCardPlayed()
+        {
+            return _handCards.Count(x => x.IsEnable()) == 0;
+        }
+
         private void UpdateStackCardText()
         {
             stackCardCountText.SetText($"{_stackCards.Count}/{_currentDeck.Count}");

@@ -87,12 +87,12 @@ namespace Game
 
         public void PlayCard(HandCard handCard)
         {
-            if (!_isPlayerTurn || _cardPlayed) return;
-            _cardPlayed = true;
+            if (!_isPlayerTurn) return;
             player.AddBubble(handCard.cardDefinition.bubbleData);
             Debug.Log($"泡を張った：{handCard.cardDefinition.name}");
             SoundManager.Instance.PlaySe(GameConst.SeType.Decision3);
             handCard.SetEnable(false);
+            if (cardManager.IsAllCardPlayed()) _cardPlayed = true;
         }
 
         public async UniTask EnemyTurn()
