@@ -28,4 +28,11 @@ public class GameManager : Singleton<GameManager>
         inGameManager.Setup();
         inGameManager.SetEnable(true);
     }
+
+    public void InGameToTitle()
+    {
+        inGameManager.SetEnable(false);
+        titleWindowManager.Setup();
+        titleWindowManager.SetEnable(true);
+    }
 }

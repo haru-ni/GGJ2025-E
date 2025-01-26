@@ -16,6 +16,7 @@ namespace Game
         [SerializeField] private CardManager cardManager;
         [SerializeField] private StageManager stageManager;
         [SerializeField] private Player player;
+        [SerializeField] private ResultPopup resultPopup;
 
         private bool _isEnable;
         private bool _gameClear;
@@ -55,7 +56,7 @@ namespace Game
                     _turnIndex++;
                 }
 
-                GameManager.Instance.currentStageIndex++;   
+                GameManager.Instance.currentStageIndex++;
             }
 
             Ending();
@@ -285,6 +286,20 @@ namespace Game
             }
 
             return (false, new GameConst.ColorType());
+        }
+
+        public void Result(bool isWin)
+        {
+            resultPopup.Setup(isWin, ResultWinActon, ResultLoseActon);
+        }
+
+        public void ResultWinActon()
+        {
+        }
+
+        public void ResultLoseActon()
+        {
+            GameManager.Instance.InGameToTitle();
         }
 
         private void Ending()

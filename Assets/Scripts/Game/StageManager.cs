@@ -58,7 +58,7 @@ namespace Game
                 DestroyImmediate(_enemyList[i]);
                 _enemyList.RemoveAt(i);
             }
-            // TODO リザルトに遷移？
+            InGameWindowManager.Instance.Result(true);
         }
     }
 }
