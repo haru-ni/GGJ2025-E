@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4406c05d3c64659884d8bb7b9190f5, type: 3}
   m_Name: Green2
   m_EditorClassIdentifier: 
-  cardName: Green1
+  cardName: Green2
   sprite: {fileID: 21300000, guid: 1f63ccc5095e24781b6720d55b88fe86, type: 3}
   bubbleData:
     power: 2
