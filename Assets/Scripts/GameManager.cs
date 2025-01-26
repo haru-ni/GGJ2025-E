@@ -8,6 +8,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private TitleWindowManager titleWindowManager;
     [SerializeField] private InGameWindowManager inGameManager;
 
+    public int currentStageIndex;
+
     protected override void Awake()
     {
         base.Awake();

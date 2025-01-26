@@ -18,6 +18,7 @@ namespace Game
         [SerializeField] private Player player;
 
         private bool _isEnable;
+        private bool _gameClear;
         private bool _inGameEnd;
         private int _turnIndex;
         private int Turn => _turnIndex + 1;
@@ -41,13 +42,30 @@ namespace Game
         public async UniTask StartInGame()
         {
             SoundManager.Instance.PlayBgm(GameConst.BgmType.NormalBattle);
-            player.Setup();
-            cardManager.Setup();
-            stageManager.Setup();
-            while (!_inGameEnd)
+            _gameClear = false;
+            while (!_gameClear)
             {
-                await OneTurnRoutine();
-                _turnIndex++;
+                player.Setup();
+                cardManager.Setup();
+                stageManager.Setup(GameManager.Instance.currentStageIndex);
+                _inGameEnd = false;
+                while (!_inGameEnd)
+                {
+                    await OneTurnRoutine();
+                    _turnIndex++;
+                }
+
+                GameManager.Instance.currentStageIndex++;   
+            }
+
+            Ending();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                _inGameEnd = true;
             }
         }
 
@@ -267,6 +285,11 @@ namespace Game
             }
 
             return (false, new GameConst.ColorType());
+        }
+
+        private void Ending()
+        {
+            // TODO エンディング
         }
     }
 }

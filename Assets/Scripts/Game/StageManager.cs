@@ -18,10 +18,8 @@ namespace Game
 
         private readonly List<Enemy> _enemyList = new();
 
-        public void Setup()
+        public void Setup(int stageIndex)
         {
-            // TODO 適切なステージインデックスを読み込むようにする
-            const int stageIndex = 1;
             StageSetup(stageDefinitions[stageIndex % stageDefinitions.Count]);
         }
 
