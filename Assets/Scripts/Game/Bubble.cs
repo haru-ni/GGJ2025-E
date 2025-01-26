@@ -24,6 +24,7 @@ namespace Game
         [SerializeField] private List<Sprite> startSprites = new();
 
         private BubbleData _bubbleData;
+        private readonly List<Image> _stars = new();
         private int _layer;
         private bool _enable;
 
@@ -37,10 +38,18 @@ namespace Game
             colorBubbleImage.sprite = colorBubbleSprite[(int)bubbleData.color];
             colorBubbleImage.SetNativeSize();
 
+            for (var i = _stars.Count - 1; i >= 0; i--)
+            {
+                DestroyImmediate(_stars[i].gameObject);
+            }
+
+            _stars.Clear();
+
             for (var i = 0; i < bubbleData.power; i++)
             {
                 var star = Instantiate(starPrefab, informationContainer);
                 star.sprite = startSprites[(int)bubbleData.color];
+                _stars.Add(star);
             }
         }
 
