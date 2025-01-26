@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using ScriptableObjects.Card;
@@ -15,6 +14,7 @@ namespace Game
     {
         [SerializeField] private CardPackDefinition initialDeck;
         [SerializeField] private List<CardPackDefinition> cardPackDefinitions = new();
+        [SerializeField] private List<CardDefinition> validCardList = new();
 
         [SerializeField] private Card cardPrefab;
         [SerializeField] private HandCard handCardPrefab;
@@ -22,6 +22,8 @@ namespace Game
         [SerializeField] private RectTransform handCardContainer;
         [SerializeField] private Button stackCardButton;
         [SerializeField] private TextMeshProUGUI stackCardCountText;
+
+        [SerializeField] private DeckPopup deckPopup;
 
         private readonly List<HandCard> _handCards = new();
         private List<CardDefinition> _stackCards = new();
@@ -48,7 +50,14 @@ namespace Game
 
             var needDrawCardNumber = _handCards.Count(x => !x.IsEnable());
             DrawCard(needDrawCardNumber);
+
+            stackCardButton.onClick.RemoveAllListeners();
+            stackCardButton.onClick.AddListener(StackCardEvent);
         }
+
+        public List<CardDefinition> GetStackCardList() => _stackCards;
+        public List<CardDefinition> GetCurrentDeck() => _currentDeck;
+        public List<CardDefinition> GetValidCardList() => validCardList;
 
         private void UpdateStackCardText()
         {
@@ -57,7 +66,8 @@ namespace Game
 
         private void StackCardEvent()
         {
-            // TODO 山札情報表示用のイベント
+            SoundManager.Instance.PlaySe(GameConst.SeType.Decision31);
+            deckPopup.Setup();
         }
 
         /// <summary>
