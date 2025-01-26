@@ -106,11 +106,18 @@ namespace Utils
             ShieldBurst,
         }
 
-        public static Dictionary<BattleEffect, string> BattleEffectDictionary = new()
+        public static readonly Dictionary<BattleEffect, string> BattleEffectDictionary = new()
         {
             { BattleEffect.EnemyHit, "enemy_hit" },
             { BattleEffect.Hit, "hit" },
             { BattleEffect.ShieldBurst, "shield_burst" },
+        };
+
+        public static readonly Dictionary<BattleEffect, float> BattleEffectTime = new()
+        {
+            { BattleEffect.EnemyHit, 2.0f },
+            { BattleEffect.Hit, 0.5f },
+            { BattleEffect.ShieldBurst, 1.0f },
         };
 
         public enum PlayerShield
@@ -122,13 +129,22 @@ namespace Utils
             Shield5,
         }
 
-        public static Dictionary<PlayerShield, string> PlayerShieldDictionary = new()
+        public static readonly Dictionary<PlayerShield, string> PlayerShieldDictionary = new()
         {
             { PlayerShield.Shield1, "shield_1" },
             { PlayerShield.Shield2, "shield_2" },
             { PlayerShield.Shield3, "shield_3" },
             { PlayerShield.Shield4, "shield_4" },
             { PlayerShield.Shield5, "shield_5" },
+        };
+
+        public static readonly Dictionary<PlayerShield, float> PlayerShieldTime = new()
+        {
+            { PlayerShield.Shield1, 3.5f },
+            { PlayerShield.Shield2, 3.5f },
+            { PlayerShield.Shield3, 3.5f },
+            { PlayerShield.Shield4, 3.5f },
+            { PlayerShield.Shield5, 3.5f },
         };
 
         #endregion
