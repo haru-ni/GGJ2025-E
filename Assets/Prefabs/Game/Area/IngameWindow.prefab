@@ -419,6 +419,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageDefinitions:
   - {fileID: 11400000, guid: b159d6cc833ff40b9b4a97bdfef8eeb3, type: 2}
+  - {fileID: 11400000, guid: c41d2d69d7e2b4b52987ef3843ecf56c, type: 2}
+  - {fileID: 11400000, guid: 523f87dc397dd479c97276397930910d, type: 2}
+  - {fileID: 11400000, guid: 0d10c630c9f6d442cba0f9718b4f4ca6, type: 2}
   enemyPrefab: {fileID: 6363756443222215998, guid: 71600f6ace98745d6a702c82cfa30b9f, type: 3}
   enemyArea: {fileID: 4155659196112833644}
   backGroundImage: {fileID: 9027916890919396733}

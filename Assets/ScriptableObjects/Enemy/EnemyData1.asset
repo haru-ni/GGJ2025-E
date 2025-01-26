@@ -26,4 +26,4 @@ MonoBehaviour:
       power: 1
       color: 0
     numberOfDestroy: 1
-  hp: 3
+  hp: 5
